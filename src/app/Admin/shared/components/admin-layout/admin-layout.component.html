@@ -1,0 +1,32 @@
+<header class="head">
+  <h1 class="title" id="admin-title">Панель администратора</h1>
+  <div class="buttons" *ngIf="authService.isAuthenticated() && !alertVisibilityService.deleteWindow">
+    <div class="navbar">
+      <button
+        (click)="animateService.changeStatusSearch()"
+        [ngStyle]="{
+        opacity : animateService.statusSearch === 'end'? '0': '1'
+        }"
+        class="btn">Поиск
+      </button>
+      <button class="btn" id="create" [routerLink]="['/admin', 'create']">Создать пост</button>
+      <button class="btn Home" [routerLink]="['/admin', 'main']">На главную</button>
+      <div class="auth out">
+        <h3 (click)="logout($event)">Выход</h3>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div>
+  <app-alert></app-alert>
+</div>
+
+<div class="admin-user-main-posts-card">
+  <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="animateService.backdrop === 'end'" class="backdrop">
+  <router-outlet name="admin-search"></router-outlet>
+</div>
+

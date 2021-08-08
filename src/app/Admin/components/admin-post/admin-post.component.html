@@ -1,0 +1,26 @@
+<div class="content-post-admin-user" *ngIf="post; else load">
+  <div class="content-title">
+    <img src="{{post.image}}" alt="Не удается загрузить фото">
+  </div>
+  <div class="content-text">
+    <div class="button-container-options">
+      <button class="btn" [routerLink]="['/admin/post-refactor', post.id]">Редактировать</button>
+      <button
+        class="btn btn2"
+        (click)="data.deletePost(post.id)"
+        [routerLink]="['/admin', 'main']"
+      >Удалить
+      </button>
+    </div>
+    <h1>{{post.title}}</h1>
+    <p [innerHTML]="post.text"></p>
+  </div>
+</div>
+
+<ng-template #load>
+  <div class="backdrop">
+    <div class="load" [@loadEnter]>
+      <h1>Загрузка...</h1>
+    </div>
+  </div>
+</ng-template>

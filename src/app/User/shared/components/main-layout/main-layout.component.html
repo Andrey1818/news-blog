@@ -1,0 +1,30 @@
+<header class="head">
+  <h1 class="title">Новости.ua</h1>
+  <div class='navbar'>
+    <div>
+      <button
+        class="btn"
+        (click)="animateService.changeStatusSearch()"
+        [ngStyle]="{
+        opacity : animateService.statusSearch === 'end'? '0': '1'
+        }"
+      >Поиск
+      </button>
+    </div>
+    <div>
+      <button class="btn Home" [routerLink]='["/"]'>На главную</button>
+    </div>
+    <div class="auth">
+      <h3 class="hrefs" [routerLink]="['/admin']">Авторизация</h3>
+    </div>
+  </div>
+</header>
+
+
+<div class="backdrop" *ngIf="animateService.backdrop === 'end'">
+  <router-outlet name='search'></router-outlet>
+</div>
+
+<div class="admin-user-main-posts-card">
+  <router-outlet></router-outlet>
+</div>

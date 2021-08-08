@@ -1,0 +1,58 @@
+app-admin-post-generate {
+  border-radius: 10px;
+}
+
+
+.backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .alert-window-delete {
+    opacity: 0.9;
+    position: relative;
+    border: 1px solid black;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    background: white;
+
+    header {
+      position: absolute;
+      background: red;
+      height: 70px;
+      top: 0;
+      width: 100%;
+      left: 0;
+    }
+
+    .alert-delete-message {
+      position: absolute;
+      top: 90px;
+      width: 100%;
+      background: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+
+      .btn-delete-block {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      #btn-delete {
+        background: red;
+        border-bottom: 2px solid red;
+      }
+
+      #btn-delete:hover {
+        background: white;
+        transition: background 0.5s;
+      }
+
+    }
+  }
+}
+

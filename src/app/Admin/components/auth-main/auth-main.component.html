@@ -1,0 +1,11 @@
+<div class="backdrop">
+
+  <div [@enter] [@leave] *ngIf="!visibilityService.authError">
+    <app-auth-home></app-auth-home>
+  </div>
+
+  <div [@enterError] *ngIf="visibilityService.authError">
+    <app-auth-error></app-auth-error>
+  </div>
+
+</div>

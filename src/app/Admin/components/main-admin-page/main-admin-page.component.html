@@ -1,0 +1,34 @@
+<div class="posts-card-user-admin" *ngIf="data.arrPosts.length">
+  <app-admin-post-generate
+    *ngFor="let post of data.arrPosts"
+    [appMouseEnter]='{shadow: "0px 15px 25px", scale: "scale(1.1)"}'
+    [@bounce]
+    [post]="post"
+    (id)="getPost($event)"
+    [@bounceLeave]
+  ></app-admin-post-generate>
+</div>
+
+
+<div class="backdrop" *ngIf="alertDeleteVisibilityService.deleteWindow">
+  <div class="alert-window-delete"
+       *ngIf="alertDeleteVisibilityService.deleteWindow"
+       [@alertDeleteEnter]
+  >
+    <header>
+      <button
+        class="close"
+        type="button"
+        (click)="alertDeleteVisibilityService.alertDelete()"
+      ></button>
+      <h2>Применение изменений</h2>
+    </header>
+    <div class="alert-delete-message">
+      <p>Вы уверены что хотите удалить этот пост?</p>
+      <div class="btn-delete-block">
+        <button class="btn" id="btn-delete" (click)="deletePost()">Удалить</button>
+        <button class="btn" (click)="alertDeleteVisibilityService.alertDelete()">Отмена</button>
+      </div>
+    </div>
+  </div>
+</div>

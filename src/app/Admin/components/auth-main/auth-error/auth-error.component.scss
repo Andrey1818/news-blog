@@ -1,0 +1,40 @@
+
+.position {
+  margin-top: 200px;
+
+  .error-container {
+    width: 400px;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px black;
+
+    .error {
+      position: absolute;
+      background: #e8e8e8;
+      width: 400px;
+      min-height: 200px;
+      color: black;
+      border-radius: 5px;
+
+      .error-title-box {
+        background: red;
+        color: white;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+      }
+
+      .error-information-box {
+        margin-top: 80px;
+        text-align: center;
+        opacity: 0.6;
+      }
+    }
+  }
+}
+

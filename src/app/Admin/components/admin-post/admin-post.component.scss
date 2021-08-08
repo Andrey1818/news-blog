@@ -1,0 +1,40 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container-options {
+  position: relative;
+  margin-top: 2px;
+  opacity: 0.8;
+  height: 60px;
+
+  .btn {
+    background: none;
+    border: none;
+    position: absolute;
+    left: 10px;
+    bottom: 2px;
+    border-bottom: 3px solid #1f1f1f;
+  }
+
+  .btn:hover {
+    border-bottom-color: aqua;
+    color: aqua;
+    transition: border-bottom-color 0.5s;
+  }
+
+  .btn.btn2 {
+    width: 90px;
+    left: calc(100% - 100px)
+  }
+
+  .btn.btn2:hover {
+    border-bottom-color: red;
+    color: red;
+    transition: border-bottom-color 0.5s;
+  }
+}
+
+

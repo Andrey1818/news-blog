@@ -1,0 +1,21 @@
+<div class="post">
+  <div class="admin-content">
+    <button type="button"
+            class="close"
+            (click)="alertDeleteVisibilityService.alertDelete(); id.emit(post.id)"
+            [disabled]="alertDeleteVisibilityService.deleteWindow"
+    ></button>
+    <img src="{{post.image}}" alt="Не удалось загрузить фото">
+    <div class="post-information">
+      <small class="post-date"><i>{{post.date|date:'dd.MM.YYYY'}}</i></small>
+      <h2>{{post.title}}</h2>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn"
+    [routerLink]="['/admin/post-admin', post.id]"
+    [disabled]="alertDeleteVisibilityService.deleteWindow"
+  >Перейти к посту
+  </button>
+</div>

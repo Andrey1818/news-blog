@@ -1,0 +1,17 @@
+<div class="content-post-admin-user" *ngIf="post; else load">
+  <div class="content-title">
+    <img src="{{post.image}}" alt="Не удается загрузить фото">
+  </div>
+  <div class="content-text">
+    <h1>{{post.title}}</h1>
+    <p [innerHTML]="post.text"></p>
+  </div>
+</div>
+
+<ng-template #load>
+  <div class="backdrop">
+    <div class="load" [@loadEnter]>
+      <h1>Загрузка...</h1>
+    </div>
+  </div>
+</ng-template>

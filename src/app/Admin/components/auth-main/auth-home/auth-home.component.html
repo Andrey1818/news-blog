@@ -1,0 +1,50 @@
+<div class="position">
+  <form class="auth-form" [formGroup]="form">
+    <div *ngIf="visibilityService.errorMessageOnHome" class="error-header">
+      <h3>{{visibilityService.errorMessageOnHome}}</h3>
+    </div>
+    <div class="auth-title">
+      <h2>Авторизация</h2>
+      <div (click)="close()" class="close"></div>
+    </div>
+
+    <div class="form-control">
+      <label>Email</label>
+      <input class="inputs" id="email" type="email" formControlName="email">
+      <div class="danger"
+           *ngIf="form.get('email')?.touched&& form.get('email')?.invalid"
+      >
+        <small *ngIf="form.get('email')?.errors?.email; else required"> Введите коректный email</small>
+        <ng-template #required>
+          <small>Поле email не должно быть пустым</small>
+        </ng-template>
+      </div>
+    </div>
+
+
+    <div class="form-control">
+      <label>Пароль</label>
+      <input class="inputs" id="password" type="password" formControlName="password">
+      <div class="danger"
+           *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
+      >
+        <small *ngIf="form.get('password')?.errors!.minlength && !form.get('password')?.errors?.validateSymbol">
+          Пароль должен быть не менее 5-ти символов
+        </small>
+        <small *ngIf="form.get('password')?.errors?.required">Поле "Пароль" не может быть пустым</small>
+        <small *ngIf="form.get('password')?.errors?.validateSymbol">Обнаружены недопустимые символы</small>
+      </div>
+    </div>
+
+
+    <div class="button-auth-block">
+      <button
+        type="submit"
+        class="btn-auth"
+        (click)="submit()"
+        [disabled]="form.invalid || submitted"
+      >Войти
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<div class="posts-card-user-admin" *ngIf="data.arrPosts.length">
+  <app-posts-generate
+    *ngFor="let post of data.arrPosts"
+    [appMouseEnter]="{shadow: '0px 15px 25px', scale: 'scale(1.1)'}"
+    [@bounce]
+    [routerLink]="['/post-user', post.id]"
+    [post]="post"
+  ></app-posts-generate>
+</div>
+

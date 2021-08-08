@@ -1,0 +1,60 @@
+<form class="form-create-refactor" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-create-refactor-title">
+    <h2>Форма создания поста</h2>
+  </div>
+  <div class="form-control-refactor-create">
+    <div>
+      <label>Ссылка на фото</label>
+    </div>
+    <input type="text" formControlName="image">
+    <div *ngIf="form.get('image')?.invalid && form.get('image')?.touched " class="danger">
+      <small>Введите данные</small>
+    </div>
+  </div>
+  <div class="form-control-refactor-create">
+    <div>
+      <label>Заголовок поста</label>
+    </div>
+    <input type="text" formControlName="title">
+    <div *ngIf="
+    form.get('title')?.invalid
+    && form.get('title')?.touched
+    && !form.get('title')?.errors?.maxlength " class="danger">
+      <small>Введите данные</small>
+    </div>
+    <div *ngIf="form.get('title')?.errors?.maxlength && form.get('title')?.touched " class="danger">
+      <small>Заголовок должен иметь длинну не более 38-и символов<br/>
+        Сейчас длинна {{form.get('title')?.errors?.maxlength.actualLength}} символов(а).
+      </small>
+    </div>
+  </div>
+  <div class="form-control-refactor-create">
+    <div>
+      <label>Текст поста</label>
+    </div>
+    <div id="text">
+      <quill-editor
+        [modules]="configQuill"
+        formControlName="text"
+        placeholder="Введите текст поста"
+      ></quill-editor>
+      <div
+        *ngIf="form.get('text')?.invalid
+        && form.get('text')?.touched "
+        class="danger"
+        id="quill-alert">
+        <b><small>Введите данные</small></b>
+      </div>
+    </div>
+  </div>
+  <button
+    class="btn-refactor-create"
+    type="submit"
+    [disabled]="form.invalid"
+    [ngStyle]="{
+      background: form.invalid? 'silver': '',
+      color:form.invalid? 'black': ''
+    }"
+  >Создать
+  </button>
+</form>

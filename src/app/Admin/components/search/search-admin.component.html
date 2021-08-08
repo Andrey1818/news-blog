@@ -1,0 +1,28 @@
+<div>
+  <div class="user-admin-posts-search" *ngIf="AnimateService.statusSearch === 'end'"
+       [@search]="AnimateService.statusSearch">
+    <div class="header">
+      <h2>Поиск</h2>
+      <div class="input-filter-search">
+        <input type='text' [(ngModel)]="data.searchPost">
+      </div>
+      <button (click)="AnimateService.changeBackdrop()" class="close"></button>
+    </div>
+    <div class="container-posts-search-admin-user">
+      <div
+        class='post-admin-user-search'
+        *ngFor="let post of data.arrPosts|postsFilter:data.searchPost"
+        [appMouseEnter]="{shadow: '0px 5px 5px',scale: 'scale(1.05)'}"
+        [routerLink]="['/admin/post-admin', post.id]"
+        (click)="AnimateService.changeBackdrop()"
+      >
+        <div class="image-block-search">
+          <img src="{{post.image}}" id="image" alt="Фото">
+        </div>
+        <div class="title-search-block">
+          <h4>{{post.title}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

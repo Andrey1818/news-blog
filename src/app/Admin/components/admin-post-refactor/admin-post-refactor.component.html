@@ -1,0 +1,43 @@
+<form class="form-create-refactor" [formGroup]="form" (ngSubmit)="submit()" *ngIf="post">
+  <div class="form-create-refactor-title">
+    <h2>Форма редактирования</h2>
+  </div>
+  <div class="form-control-refactor-create">
+    <div>
+      <label>Именить заголовок поста</label>
+    </div>
+    <input type="text" formControlName="title">
+    <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched " class="danger">
+      <small>Введите данные</small>
+    </div>
+  </div>
+  <div class="form-control-refactor-create">
+    <div>
+      <label>Изменить текст поста</label>
+    </div>
+    <div id="text">
+      <quill-editor
+        formControlName="text"
+        placeholder="Введите текст поста"
+        [modules]="configQuill"
+      ></quill-editor>
+      <div
+        *ngIf="form.get('text')?.invalid
+        && form.get('text')?.touched "
+        class="danger"
+        id="quill-alert">
+        <b><small>Введите данные</small></b>
+      </div>
+    </div>
+  </div>
+  <button
+    class="btn-refactor-create"
+    type="submit"
+    [disabled]="form.invalid|| submitted "
+    [ngStyle]="{
+      background: form.invalid||submitted? 'silver': '',
+      color:form.invalid|| submitted? 'black': ''
+    }"
+  >Сохранить измениния
+  </button>
+</form>
