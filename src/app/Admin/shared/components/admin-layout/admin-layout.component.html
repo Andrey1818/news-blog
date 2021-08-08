@@ -11,8 +11,8 @@
       </button>
       <button class="btn" id="create" [routerLink]="['/admin', 'create']">Создать пост</button>
       <button class="btn Home" [routerLink]="['/admin', 'main']">На главную</button>
-      <div class="auth out">
-        <h3 (click)="logout($event)">Выход</h3>
+      <div class="auth out" (click)="logout($event)">
+        <h3>Выход</h3>
       </div>
     </div>
   </div>
