@@ -25,7 +25,7 @@ export class AuthMainComponent implements OnInit {
       this.router.navigate(['/admin', 'main'])
     }
     this.route.queryParams.subscribe((params: Params) => {
-      if (params['time']) {
+      if (params['time'] || params['authFailed']) {
         this.visibilityService.errorMessageOnHome = 'Время сессии истекло. Авторизируйтесь.'
       }
     })
