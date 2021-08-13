@@ -73,12 +73,19 @@
         border-radius: 5px;
         outline: none;
         border: none;
-
-        .btn-auth:hover {
-          background: #3b3b3b;
-          transition: background 0.4s;
-        }
       }
+
+      .btn-auth:hover {
+        color: white;
+        background: #000000;
+        transition: background 0.4s;
+      }
+
+      button:disabled:hover{
+        color: #1f1f1f;
+        background: rgba(248, 248, 248, 0.3);
+      }
+
     }
   }
 }

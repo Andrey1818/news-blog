@@ -47,7 +47,7 @@ export class AuthHomeComponent implements OnInit {
           this.visibilityService.errorMessageOnHome = ''
           this.route.navigate(['/admin', 'main'])
         }, () => {
-          return
+          console.log('Error 400')
         })
     }
   }
