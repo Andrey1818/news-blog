@@ -40,7 +40,7 @@ export class AuthInterceptor implements HttpInterceptor {
             this.visibilityService.authError = true
             this.visibilityService.errorTextMessage(error.error.error.message)
           }
-          return throwError('Error...')
+          return throwError(error)
         })
       )
   }
